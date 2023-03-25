@@ -1,6 +1,8 @@
 package ca.petrowski.upgradedleather;
 
+import ca.petrowski.upgradedleather.items.CatFurItem;
 import ca.petrowski.upgradedleather.items.HorseHideItem;
+import ca.petrowski.upgradedleather.items.HorseSaddleItem;
 import ca.petrowski.upgradedleather.items.WardenLeatherItem;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -44,6 +46,8 @@ public class UpgradedLeather
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> WARDEN_LEATHER_ITEM = ITEMS.register("warden_leather", () -> new WardenLeatherItem());
     public static final RegistryObject<Item> HORSE_HIDE_ITEM = ITEMS.register("horse_hide", () -> new HorseHideItem());
+    public static final RegistryObject<Item> CAT_FUR_ITEM = ITEMS.register("cat_fur", () -> new CatFurItem());
+    public static final RegistryObject<Item> HORSE_SADDLE_ITEM = ITEMS.register("horse_saddle", () -> new HorseSaddleItem());
     public UpgradedLeather()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -75,7 +79,10 @@ public class UpgradedLeather
         if (event.getTab() == CreativeModeTabs.INGREDIENTS)
         {
             event.accept(WARDEN_LEATHER_ITEM);
-            event.accept(HORSE_HIDE_ITEM);}
+            event.accept(HORSE_HIDE_ITEM);
+            event.accept(HORSE_SADDLE_ITEM);
+            event.accept(CAT_FUR_ITEM);
+        }
 
     }
 
